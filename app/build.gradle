@@ -47,4 +47,5 @@ dependencies {
     implementation('com.github.niorgai:StatusBarCompat:2.1.4', {
         exclude group: 'com.android.support'
     })
+    implementation 'cjt.library.wheel:camera:1.1.9'
 }

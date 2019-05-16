@@ -16,6 +16,7 @@ import com.bumptech.glide.Glide;
 import com.ch.doudemo.R;
 import com.ch.doudemo.base.BaseRecAdapter;
 import com.ch.doudemo.base.BaseRecViewHolder;
+import com.ch.doudemo.fragment.CaptureFragment;
 import com.ch.doudemo.fragment.Page2Fragment;
 import com.ch.doudemo.widget.MyVideoPlayer;
 
@@ -48,7 +49,13 @@ public class Page2Activity extends BaseActivity {
         vp.setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
-                return new Page2Fragment();
+                if (position==0){
+                    return new CaptureFragment();
+                }else if (position ==1){
+                    return new Page2Fragment();
+                }else {
+                    return new Fragment();
+                }
             }
 
             @Override
