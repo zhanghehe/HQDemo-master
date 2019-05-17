@@ -18,6 +18,7 @@ import com.ch.doudemo.base.BaseRecAdapter;
 import com.ch.doudemo.base.BaseRecViewHolder;
 import com.ch.doudemo.fragment.CaptureFragment;
 import com.ch.doudemo.fragment.Page2Fragment;
+import com.ch.doudemo.fragment.WebFragment;
 import com.ch.doudemo.widget.MyVideoPlayer;
 
 import java.util.ArrayList;
@@ -49,12 +50,12 @@ public class Page2Activity extends BaseActivity {
         vp.setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
             @Override
             public Fragment getItem(int position) {
-                if (position==0){
+                if (position == 0) {
                     return new CaptureFragment();
-                }else if (position ==1){
+                } else if (position == 1) {
                     return new Page2Fragment();
-                }else {
-                    return new Fragment();
+                } else {
+                    return new WebFragment();
                 }
             }
 
@@ -69,5 +70,14 @@ public class Page2Activity extends BaseActivity {
 
     private void addListener() {
 
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (vp.getCurrentItem() != 1) {
+            vp.setCurrentItem(1, true);
+        } else {
+            super.onBackPressed();
+        }
     }
 }

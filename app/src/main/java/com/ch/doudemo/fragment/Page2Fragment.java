@@ -126,7 +126,6 @@ public class Page2Fragment extends BaseFragment {
                 holder.mp_video.startVideo();
             }
             Glide.with(context).load(bean).into(holder.mp_video.thumbImageView);
-            holder.tv_title.setText("第" + position + "个视频");
         }
 
         @Override
@@ -147,7 +146,6 @@ public class Page2Fragment extends BaseFragment {
             super(rootView);
             this.rootView = rootView;
             this.mp_video = rootView.findViewById(R.id.mp_video);
-            this.tv_title = rootView.findViewById(R.id.tv_title);
         }
 
     }
