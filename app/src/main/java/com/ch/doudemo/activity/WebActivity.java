@@ -56,7 +56,7 @@ public class WebActivity extends BaseActivity{
 
             }
         });
-        webview.loadUrl("http://hequ.fly010.com");
+        webview.loadUrl("http://hequ-api.fly010.com/fabu.html");
     }
     private void initWebView() {
        /* WebSettings settings = webview.getSettings();

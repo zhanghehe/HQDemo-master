@@ -1,5 +1,6 @@
 package com.ch.doudemo.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.PagerSnapHelper;
@@ -7,11 +8,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.ch.doudemo.R;
 import com.ch.doudemo.activity.Page2Activity;
+import com.ch.doudemo.activity.WebActivity;
 import com.ch.doudemo.base.BaseRecAdapter;
 import com.ch.doudemo.base.BaseRecViewHolder;
 import com.ch.doudemo.widget.MyVideoPlayer;
@@ -64,6 +67,7 @@ public class Page2Fragment extends BaseFragment {
         rvPage2.setAdapter(videoAdapter);
         addListener();
     }
+
 
     @Override
     public void onPause() {
@@ -126,6 +130,12 @@ public class Page2Fragment extends BaseFragment {
                 holder.mp_video.startVideo();
             }
             Glide.with(context).load(bean).into(holder.mp_video.thumbImageView);
+            holder.iv10.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                context.startActivity(new Intent(context, WebActivity.class));
+                }
+            });
         }
 
         @Override
@@ -140,12 +150,13 @@ public class Page2Fragment extends BaseFragment {
     public class VideoViewHolder extends BaseRecViewHolder {
         public View rootView;
         public MyVideoPlayer mp_video;
-        public TextView tv_title;
+        public ImageView iv10;
 
         public VideoViewHolder(View rootView) {
             super(rootView);
             this.rootView = rootView;
             this.mp_video = rootView.findViewById(R.id.mp_video);
+            this.iv10 = rootView.findViewById(R.id.iv10);
         }
 
     }
